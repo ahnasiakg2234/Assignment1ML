@@ -3,6 +3,8 @@ import sklearn
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay
 
 
 breast_cancer = datasets.load_breast_cancer()
@@ -28,3 +30,7 @@ print(f"F1 Score: {f1_score:.2f}")
 
 confusion = sklearn.metrics.confusion_matrix(y_test, random_forest.predict(X_test))
 print(f"Confusion Matrix:\n{confusion}")
+
+display = ConfusionMatrixDisplay(confusion)
+display.plot()
+plt.show()
