@@ -2,6 +2,8 @@
 import sklearn
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
 
 breast_cancer = datasets.load_breast_cancer()
 X = breast_cancer.data
@@ -9,14 +11,12 @@ y = breast_cancer.target
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+scaled = StandardScaler()
+X_train = scaled.fit_transform(X_train)
+X_test = scaled.transform(X_test)
+
 random_forest = sklearn.ensemble.RandomForestClassifier(n_estimators=100)
 random_forest.fit(X_train, y_train)
-
-# random_forest_max_depth = sklearn.ensemble.RandomForestClassifier(n_estimators=100, max_depth=5)
-# random_forest_max_depth.fit(X_train, y_train)
-
-random_forest_min_samples_split = sklearn.ensemble.RandomForestClassifier(n_estimators=100, min_samples_split=10)
-random_forest_min_samples_split.fit(X_train, y_train)
 
 accuracy = random_forest.score(X_test, y_test)
 print("Accuracy:", accuracy)
