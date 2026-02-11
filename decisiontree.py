@@ -18,7 +18,6 @@ decision_tree.fit(X_train, y_train)
 tree.plot_tree(decision_tree)
 plt.show()
 
-
 accuracy = decision_tree.score(X_test, y_test)
 print("Accuracy:", accuracy)
 
