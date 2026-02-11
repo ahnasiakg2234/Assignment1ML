@@ -15,25 +15,25 @@ X_train = scaled.fit_transform(X_train)
 X_test = scaled.transform(X_test)
 
 #Modification of key hyperparameters, see how nearest neighbors changes the data
-knn = KNeighborsClassifier(n_neighbors= 25)
+knn = KNeighborsClassifier(n_neighbors= 10)
 knn.fit(X_train, y_train)
 
 # Evaluate the KNN model with modified key hyperparameter n_neighbors
-print("KNN Classifier (n_neighbors=25):")
+print("KNN Classifier (n_neighbors=10):")
 accKNN = knn.score(X_test, y_test)
-print("Accuracy:", accKNN)
+print(f"Accuracy (n_neighbors=10): {accKNN:.2f}")
 
 precKNN = sklearn.metrics.precision_score(y_test, knn.predict(X_test))
-print("Precision:", precKNN)
+print(f"Precision (n_neighbors=10): {precKNN:.2f}")
 
 recKNN = sklearn.metrics.recall_score(y_test, knn.predict(X_test))
-print("Recall:", recKNN)
+print(f"Recall (n_neighbors=10): {recKNN:.2f}")
 
 f1_scoreKNN = sklearn.metrics.f1_score(y_test, knn.predict(X_test))
-print("F1 Score:", f1_scoreKNN)
+print(f"F1 Score (n_neighbors=10): {f1_scoreKNN:.2f}")
 
 confusionKNN = sklearn.metrics.confusion_matrix(y_test, knn.predict(X_test))
-print("Confusion Matrix:\n", confusionKNN)
+print(f"Confusion Matrix (n_neighbors=10):\n", confusionKNN)
 
 #Experimenting with max_depth for decision tree
 decision_tree_max_depth = sklearn.tree.DecisionTreeClassifier(max_depth=5)
@@ -42,16 +42,16 @@ decision_tree_max_depth.fit(X_train, y_train)
 #Evaluate the Decision Tree model with modified key hyperparameter max_depth
 print("\nDecision Tree Classifier (max_depth=5):")
 accDT = decision_tree_max_depth.score(X_test, y_test)
-print("Accuracy (max_depth=5):", accDT)
+print(f"Accuracy (max_depth=5): {accDT:.2f}")
 
 precDT = sklearn.metrics.precision_score(y_test, decision_tree_max_depth.predict(X_test))
-print("Precision (max_depth=5):", precDT)
+print(f"Precision (max_depth=5): {precDT:.2f}")
 
 recDT = sklearn.metrics.recall_score(y_test, decision_tree_max_depth.predict(X_test))
-print("Recall (max_depth=5):", recDT)
+print(f"Recall (max_depth=5): {recDT:.2f}")
 
 f1_scoreDT = sklearn.metrics.f1_score(y_test, decision_tree_max_depth.predict(X_test))
-print("F1 Score (max_depth=5):", f1_scoreDT)
+print(f"F1 Score (max_depth=5): {f1_scoreDT:.2f}")
 
 confusionDT = sklearn.metrics.confusion_matrix(y_test, decision_tree_max_depth.predict(X_test))
 print("Confusion Matrix (max_depth=5):\n", confusionDT)
@@ -62,16 +62,16 @@ random_forest_max_depth.fit(X_train, y_train)
 #Evaluate the random forest model using max_depth
 print("\nRandom Forest Classifier with (max_depth=5):")
 accRFMax = random_forest_max_depth.score(X_test, y_test)
-print("Accuracy (max_depth=5):", accRFMax)
+print(f"Accuracy (max_depth=5): {accRFMax:.2f}")
 
 precRFMax = sklearn.metrics.precision_score(y_test, random_forest_max_depth.predict(X_test))
-print("Precision (max_depth=5):", precRFMax)
+print(f"Precision (max_depth=5): {precRFMax:.2f}")
 
 recRFMax = sklearn.metrics.recall_score(y_test, random_forest_max_depth.predict(X_test))
-print("Recall (max_depth=5):", recRFMax)
+print(f"Recall (max_depth=5): {recRFMax:.2f}")
 
 f1_scoreRFMax = sklearn.metrics.f1_score(y_test, random_forest_max_depth.predict(X_test))
-print("F1 Score (max_depth=5):", f1_scoreRFMax)
+print(f"F1 Score (max_depth=5): {f1_scoreRFMax:.2f}")
 
 confusionRFMax = sklearn.metrics.confusion_matrix(y_test, random_forest_max_depth.predict(X_test))
 print("Confusion Matrix (max_depth=5):\n", confusionRFMax)
@@ -82,16 +82,16 @@ random_forest_min_samples_split.fit(X_train, y_train)
 #Evaluate the model
 print("\nRandom Forest Classifier with (min_samples_split=15):")
 accRFMin = random_forest_min_samples_split.score(X_test, y_test)
-print("Accuracy (min_samples_split=15):", accRFMin)
+print(f"Accuracy (min_samples_split=15): {accRFMin:.2f}")
 
 precRFMin = sklearn.metrics.precision_score(y_test, random_forest_min_samples_split.predict(X_test))
-print("Precision (min_samples_split=15):", precRFMin)
+print(f"Precision (min_samples_split=15): {precRFMin:.2f}")
 
 recRFMin = sklearn.metrics.recall_score(y_test, random_forest_min_samples_split.predict(X_test))
-print("Recall (min_samples_split=15):", recRFMin)
+print(f"Recall (min_samples_split=15): {recRFMin:.2f}")
 
 f1_scoreRFMin = sklearn.metrics.f1_score(y_test, random_forest_min_samples_split.predict(X_test))
-print("F1 Score (min_samples_split=15):", f1_scoreRFMin)
+print(f"F1 Score (min_samples_split=15): {f1_scoreRFMin:.2f}")
 
 confusionRFMin = sklearn.metrics.confusion_matrix(y_test, random_forest_min_samples_split.predict(X_test))
-print("Confusion Matrix (min_samples_split=15):\n", confusionRFMin)
+print(f"Confusion Matrix (min_samples_split=15):\n", confusionRFMin)
