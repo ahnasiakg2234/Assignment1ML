@@ -19,18 +19,17 @@ tree.plot_tree(decision_tree)
 plt.show()
 
 accuracy = decision_tree.score(X_test, y_test)
-print("Accuracy:", accuracy)
+print(f"Accuracy: {accuracy:.2f}")
 
 precision = sklearn.metrics.precision_score(y_test, decision_tree.predict(X_test))
-print("Precision:", precision)
+print(f"Precision: {precision:.2f}")
 
 recall = sklearn.metrics.recall_score(y_test, decision_tree.predict(X_test))
-print("Recall:", recall)
-
+print(f"Recall: {recall:.2f}")
 
 f1_score = sklearn.metrics.f1_score(y_test, decision_tree.predict(X_test))
-print("F1 Score:", f1_score)
+print(f"F1 Score: {f1_score:.2f}")
 
 
 confusion = sklearn.metrics.confusion_matrix(y_test, decision_tree.predict(X_test))
-print("Confusion Matrix:\n", confusion)
+print(f"Confusion Matrix:\n{confusion}")
