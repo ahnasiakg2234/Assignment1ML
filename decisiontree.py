@@ -1,23 +1,20 @@
-
+# Importing all necessary libraries 
 import sklearn
 from sklearn import tree
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay
-
+#loading the data
 breast_cancer = datasets.load_breast_cancer()
 X = breast_cancer.data
 y = breast_cancer.target
-
+# Splitting the dataset into training and (20%)testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
+#Creating the Decision Tree model
 decision_tree = sklearn.tree.DecisionTreeClassifier()
 decision_tree.fit(X_train, y_train)
-
-tree.plot_tree(decision_tree)
-plt.show()
-
+# Evaluating the model
 accuracy = decision_tree.score(X_test, y_test)
 print(f"Accuracy: {accuracy:.2f}")
 

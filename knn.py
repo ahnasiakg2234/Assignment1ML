@@ -1,3 +1,4 @@
+#Importing all necessary libraries
 import sklearn
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
@@ -6,21 +7,21 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay
 
-
+#loading the data
 breast_cancer = datasets.load_breast_cancer()
 # Load the dataset
 X = breast_cancer.data
 y = breast_cancer.target
 # partition the data into 80% training and 20% test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
+#Normalizing the values
 scaled = StandardScaler()
 X_train = scaled.fit_transform(X_train)
 X_test = scaled.transform(X_test)
-
+#Creating the KNN model
 knn = KNeighborsClassifier(n_neighbors= 5)
 knn.fit(X_train, y_train)
-
+#Evaluating the model
 accuracy = knn.score(X_test, y_test)
 print(f"Accuracy: {accuracy:.2f}")
 

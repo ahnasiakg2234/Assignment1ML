@@ -1,5 +1,5 @@
 import pandas as pd 
-# Created a dataframe based on model evaluation metrics
+# Created a dataframe based on different hyperparameter model evaluation metrics
 data = {
     "Model": ["KNN(k=10)", "Decision Tree(max_depth=5)", "Random Forest(min_samples_split=15)"],
     "Accuracy": [0.96, 0.95, 0.96 ],
@@ -11,3 +11,4 @@ data = {
 df = pd.DataFrame(data)
 # Display the dataframe
 print(df)
+#printed the table to compare with the first model trials
